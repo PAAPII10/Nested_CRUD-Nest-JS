@@ -1,0 +1,138 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CategoryDto {
+  _id: String!
+  name: String!
+  icon: String!
+  description: String!
+  status: String!
+  updatedAt: DateTime
+  createdAt: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type OwnerShip {
+  id: String!
+  organization: String!
+}
+
+type Author {
+  id: String!
+  name: String!
+  organization: OwnerShip!
+}
+
+type LastUpdated {
+  author: Author!
+  updatedAt: DateTime!
+}
+
+type Item {
+  id: String!
+  type: String!
+  attributes: JSON!
+  css: JSON!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Data {
+  title: String
+  description: String!
+  templateId: String!
+  categoryId: String!
+  type: String!
+  items: [Item!]!
+  itemState: String!
+  isTraceable: String!
+  allocatedTime: String!
+  institutionAllocatedTime: String!
+  viewed: Float!
+  tags: [String!]!
+  ownership: OwnerShip!
+  author: Author!
+  lastUpdatedInfo: LastUpdated!
+  createdAt: DateTime!
+  publishedAt: DateTime!
+}
+
+input ownerships {
+  id: String!
+  organization: String!
+}
+
+input authors {
+  id: String!
+  name: String!
+  organization: ownerships!
+}
+
+input lastupdates {
+  author: authors!
+  updatedAt: DateTime!
+}
+
+input items {
+  id: String!
+  type: String!
+  attributes: JSON!
+  css: JSON!
+}
+
+type Query {
+  categories: [CategoryDto!]!
+  findCategory(input: FindCategoryInput!): CategoryDto!
+  data: [Data!]!
+}
+
+input FindCategoryInput {
+  _id: String!
+}
+
+type Mutation {
+  createCategory(input: CategoryInput!): CategoryDto!
+  updateCategory(input: UpdateCategoryInput!): CategoryDto!
+  deleteCategory(input: FindCategoryInput!): String!
+  createData(input: DataInput!): Data!
+}
+
+input CategoryInput {
+  name: String!
+  icon: String!
+  description: String!
+  status: String!
+}
+
+input UpdateCategoryInput {
+  _id: String!
+  name: String!
+  icon: String!
+  description: String!
+  status: String!
+}
+
+input DataInput {
+  title: String!
+  description: String!
+  templateId: String!
+  categoryId: String!
+  type: String!
+  items: [items!]
+  itemState: String!
+  isTraceable: String!
+  allocatedTime: String!
+  institutionAllocatedTime: String!
+  viewed: String!
+  tags: [String!]!
+  ownership: ownerships!
+  author: authors!
+}
