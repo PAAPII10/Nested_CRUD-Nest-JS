@@ -3,7 +3,7 @@ import { Prop, Schema } from '@nestjs/mongoose';
 import { ObjectType, Field, InputType } from '@nestjs/graphql';
 
 @ObjectType()
-@InputType('ownerships')
+@InputType('Ownerships')
 @Schema({ _id: false })
 export class OwnerShip {
   @Prop()

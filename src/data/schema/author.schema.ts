@@ -3,7 +3,7 @@ import { OwnerShip } from './ownership.schema';
 import { ObjectType, Field, InputType } from '@nestjs/graphql';
 
 @ObjectType()
-@InputType('authors')
+@InputType('Authors')
 @Schema({ _id: false })
 export class Author {
   @Prop()

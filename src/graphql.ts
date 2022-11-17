@@ -16,11 +16,11 @@ export interface Ownerships {
 export interface Authors {
     id: string;
     name: string;
-    organization: ownerships;
+    organization: Ownerships;
 }
 
 export interface Lastupdates {
-    author: authors;
+    author: Authors;
     updatedAt: DateTime;
 }
 
@@ -56,15 +56,15 @@ export interface DataInput {
     templateId: string;
     categoryId: string;
     type: string;
-    items?: Nullable<items[]>;
+    items?: Nullable<Items[]>;
     itemState: string;
     isTraceable: string;
     allocatedTime: string;
     institutionAllocatedTime: string;
     viewed: string;
     tags: string[];
-    ownership: ownerships;
-    author: authors;
+    ownership: Ownerships;
+    author: Authors;
 }
 
 export interface CategoryDto {

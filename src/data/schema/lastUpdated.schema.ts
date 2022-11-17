@@ -4,7 +4,7 @@ import { Author } from './author.schema';
 import { ObjectType, Field, InputType } from '@nestjs/graphql';
 
 @ObjectType()
-@InputType('lastupdates')
+@InputType('Lastupdates')
 @Schema({ _id: false })
 export class LastUpdated {
   @Prop({ type: Author })

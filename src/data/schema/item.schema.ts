@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ObjectType, Field, InputType } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 @ObjectType()
-@InputType('items')
+@InputType('Items')
 export class Item {
   @Field()
   id: string;

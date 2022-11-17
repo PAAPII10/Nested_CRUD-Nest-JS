@@ -65,23 +65,23 @@ type Data {
   publishedAt: DateTime!
 }
 
-input ownerships {
+input Ownerships {
   id: String!
   organization: String!
 }
 
-input authors {
+input Authors {
   id: String!
   name: String!
-  organization: ownerships!
+  organization: Ownerships!
 }
 
-input lastupdates {
-  author: authors!
+input Lastupdates {
+  author: Authors!
   updatedAt: DateTime!
 }
 
-input items {
+input Items {
   id: String!
   type: String!
   attributes: JSON!
@@ -126,13 +126,13 @@ input DataInput {
   templateId: String!
   categoryId: String!
   type: String!
-  items: [items!]
+  items: [Items!]
   itemState: String!
   isTraceable: String!
   allocatedTime: String!
   institutionAllocatedTime: String!
   viewed: String!
   tags: [String!]!
-  ownership: ownerships!
-  author: authors!
+  ownership: Ownerships!
+  author: Authors!
 }
